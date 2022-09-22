@@ -14,8 +14,14 @@ class Post extends Model
         $this->attributes['name'] = strtolower($value);
     }
 
+    //accessors
     public function getSlugAttribute()
     {
         return str_replace(' ', '-', $this->name);
+    }
+
+    public function href()
+    {
+        return "blog/{$this->slug}";
     }
 }
