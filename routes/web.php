@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +23,4 @@ Route::get('about', function () {
 
 Route::view('profile', 'profile');
 
-Route::post('profile', function (Illuminate\Http\Request $request){
-
-    $request->file('photo')->storeAs('profiles', 'photo.png');
-
-    return redirect('profile');
-});
+Route::post('profile', [ProfileController::class, 'upload']);

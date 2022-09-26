@@ -19,7 +19,7 @@ class ProfileTest extends TestCase
             'photo' => $photo = UploadedFile::fake()->image('photo.png')
         ]);
         
-        Storage::disk('local')->assertExists("profiles/{$photo->name}");
+        Storage::disk('local')->assertExists("profiles/{$photo->hashName()}");
 
         $response->assertRedirect('profile');
     }
