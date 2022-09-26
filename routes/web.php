@@ -20,3 +20,12 @@ Route::get('/', function () {
 Route::get('about', function () {
     return "I'm about";
 });
+
+Route::view('profile', 'profile');
+
+Route::post('profile', function (Illuminate\Http\Request $request){
+
+    $request->file('photo')->storeAs('profiles', 'photo.png');
+
+    return redirect('profile');
+});
