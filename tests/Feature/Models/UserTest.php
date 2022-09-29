@@ -20,11 +20,11 @@ class UserTest extends TestCase
             'email' => 'i@admin.com'
         ]);
 
-        $this->assertDatabaseHas('users', [ //validar si existe i@admin.com
+        $this->assertDatabaseHas('users', [ //validar si existe i@admin.com, dará true porque lo creamos arriba
             'email' => 'i@admin.com'
         ]);
 
-        $this->assertDatabaseMissing('users', [ //validar si el correo no@existe.com
+        $this->assertDatabaseMissing('users', [ //validar si el correo no@existe.com,  dará false porque no lo hemos creado
             'email' => 'no@existe.com'
         ]);
     }
